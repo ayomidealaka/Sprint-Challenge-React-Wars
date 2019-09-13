@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import axios from 'axios';
+import Names from './components/Names'
 
 const App = () => {
   const [People, setPeople] = useState([]);
