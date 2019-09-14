@@ -38,6 +38,7 @@ const App = () => {
     <div>
     <Header/>
     <Heading/>
+    <Structure>
     {People.map((people) =>
             <Names
               name={people.name}
@@ -45,6 +46,7 @@ const App = () => {
               gender={people.gender}
               />
             )}
+    </Structure>
     </div>
   );
 }
