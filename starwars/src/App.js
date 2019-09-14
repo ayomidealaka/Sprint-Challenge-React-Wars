@@ -1,7 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import './App.css';
+// import './App.css';
 import axios from 'axios';
-import Names from './components/Names'
+import Header from './components/Header';
+import Heading from './components/Heading';
+import Names from './components/Names';
+import styled from 'styled-components';
 
 const App = () => {
   const [People, setPeople] = useState([]);
@@ -24,23 +27,24 @@ const App = () => {
     })
   }, []);
 
+  const Structure = styled.div`
+  width: 80vw;
+  margin: 0 auto;
+  `
+
+
   
-  // Try to think through what state you'll need for this app before starting. Then build out
-  // the state properties here.
-
-  // Fetch characters from the star wars api in an effect hook. Remember, anytime you have a 
-  // side effect in a component, you want to think about which state and/or props it should
-  // sync up with, if any.
-
   return (
-    <div className="App">
-      
-
-        
-        {/* {console.log(People)} */}
-      
-    <h1 className="Header">React Wars with</h1>
-    <h2>Name: {People.map(item=><p>{item.name}</p>)}</h2>
+    <div>
+    <Header/>
+    <Heading/>
+    {People.map((people) =>
+            <Names
+              name={people.name}
+              birth_year={people.birth_year}
+              gender={people.gender}
+              />
+            )}
     </div>
   );
 }
